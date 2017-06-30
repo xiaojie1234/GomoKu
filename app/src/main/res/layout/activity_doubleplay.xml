@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.example.xiaojie.gomoku.presenter.impl.DoublePresenterImpl" />
+        <variable
+            name="status"
+            type="java.lang.Boolean"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@mipmap/bg">
+
+            <com.example.xiaojie.gomoku.ui.WuZiQiPanel
+                android:id="@+id/panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10">
+
+            <Button
+                android:id="@+id/newGame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{presenter.restartGame}"
+                android:text="新局" />
+
+            <Button
+                android:id="@+id/prepare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{presenter.preparedGame}"
+                android:text="准备"
+                android:enabled="@{status}"/>
+
+            <Button
+                android:id="@+id/withdraw"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{presenter.withdrawGame}"
+                android:text="悔棋" />
+
+            <Button
+                android:id="@+id/surrender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{presenter.surrenderGame}"
+                android:text="认输" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
